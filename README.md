@@ -2,15 +2,15 @@
     - The bindings for the Nom API in ruby
 
 ## Usage:
-    - `@api_handle = Nom::API.new(:key => "your developer key")`
-    - `@user        = @api_handle.login('user_name or email', 'password')`
-    - `@locations   = @api_handle.here(:lat => 33.3, :lng => -122.2)`
-    - `@activities  = @api_handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')`
-    - `@api_handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
-    - `@api_handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')`
+    `@api_handle = Nom::API.new(:key => "your developer key")`
+    `@user        = @api_handle.login('user_name or email', 'password')`
+    `@locations   = @api_handle.here(:lat => 33.3, :lng => -122.2)`
+    `@activities  = @api_handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')`
+    `@api_handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
+    `@api_handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')`
 
 ## All Success Results Take the Form:
-  ```{
+    {
       "status": 1,
       "message": "OK",
       "results": [
@@ -19,17 +19,17 @@
         ...,
         {"result": "n"}
       ]
-   }```
+    }
 
 ## All Error Results Take the Form:
-  ```{
+    {
       "status": -1,
       "message": "Some display-ready message about what the error was",
       "results": []
-   }```
+    }
 
 ## User:
-  ```{
+    {
       name: "Brian Norton",
       city: "San Francisco",
       created_at: "2011-11-23T09:46:35Z",
@@ -40,10 +40,10 @@
       follower_count: 16,
       user_nid: "4eccc0fbeef0a64dcf000001",
       screen_name: "bn"
-   },```
+    }
    
 ## Location:
-  ```{
+    {
       name: "The Grove Cafe Yerba Buena",
       location_nid: "4ec8b964eef0a679f80005be",
       primary_category: "4ec8b8a7eef0a679f8000001",
@@ -66,10 +66,10 @@
       phone: "415-957-0558",
       neighborhoods: "Financial District South",
       yid: "45199920"
-   }```
+    }
    
 ## Recommendation:
-  ```{
+    {
       created_at: "2011-12-21T07:21:19Z",
       location: @location,
       title: null,
@@ -84,12 +84,12 @@
       },
       lng: -122.41,
       lat: 37.7892
-  }```
+    }
   
 ## Thumb
-  ```{
+    {
       user_nid: "4eccc137eef0a64dcf000002",
       created_at: "2011-12-21T05:03:22Z",
       location: @location,
       value: 1
-  }```
+    }
