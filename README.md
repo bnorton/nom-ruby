@@ -1,13 +1,18 @@
 # nom-ruby
     - The bindings for the Nom API in ruby
 
+### Examples of the headless API
+- https://justnom.it/locations/here.json?lat=37.7969398498535&lng=-122.399559020996
+- https://justnom.it/activities.json?user_nid=4eccc0fbeef0a64dcf000001
+- https://justnom.it/locations/search.json?lng=-122.3898&lat=37.81273&query=king
+
 ## Usage:
-    `@api_handle = Nom::API.new(:key => "your developer key")`
-    `@user        = @api_handle.login('user_name or email', 'password')`
-    `@locations   = @api_handle.here(:lat => 33.3, :lng => -122.2)`
-    `@activities  = @api_handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')`
-    `@api_handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
-    `@api_handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')`
+    @api_handle = Nom::API.new(:key => "your developer key")
+    @user        = @api_handle.login('user_name or email', 'password')
+    @locations   = @api_handle.here(:lat => 33.3, :lng => -122.2)
+    @activities  = @api_handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')
+    @api_handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
+    @api_handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
 
 ## All Success Results Take the Form:
     {
