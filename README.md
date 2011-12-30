@@ -6,13 +6,70 @@
 - https://justnom.it/activities.json?user_nid=4eccc0fbeef0a64dcf000001
 - https://justnom.it/locations/search.json?lng=-122.3898&lat=37.81273&query=king
 
-## Usage:
-    @api_handle = Nom::API.new(:key => "your developer key")
-    @user        = @api_handle.login('user_name or email', 'password')
-    @locations   = @api_handle.here(:lat => 33.3, :lng => -122.2)
-    @activities  = @api_handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')
-    @api_handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
-    @api_handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
+###Getting Started
+#####Dependencies:
+- `json`
+- `net/http`
+
+#####Setup:
+- `gem install nom-ruby`
+- In an initializer `require 'nom-ruby'`
+- Then just make the new API handle with `handle = Nom::API.new`
+
+###Examples:
+
+####Location (here):
+    handle = Nom::API.new
+    locations = handle.here(37.7969, -122.39955)
+
+####Location (here - paginated to page 3):
+    handle = Nom::API.new
+    locations = handle.here(37.7969, -122.39955, {
+      :start => 30,
+      :limit => 15
+    })
+
+####Geolocation based search for 'vegetarian'
+    handle = Nom::API.new
+    locations = handle.location_search('vegetarian', {
+      :lat => 37.7969,
+      :lng => -122.39955
+    })
+
+
+####User search for 'team'
+    handle = Nom::API.new
+    users = handle.user_search('team')
+    users = handle.user_search('test_accout@justnom.it')
+
+####User registration (simple):
+    handle = Nom::API.new
+    user = handle.register('test_accout@justnom.it', 'a_password')
+
+####User registration (with options):
+    handle = Nom::API.new
+    user = handle.register('test_accout@justnom.it', 'a_password', {
+      :name => "The Nom Team",
+      :city => 'San Francisco',
+      :screen_name => 'team'
+    })
+
+####User Login (identifier and password based)
+    handle = Nom::API.new
+    user = handle.login('a_password', {:email => 'test_accout2@justnom.it'})
+    user = handle.login('a_password', {:user_nid => '4efd9128eef0a63881000001'}) ## same user a above
+
+####Yet Unimplemented
+    
+    #### Not yet implemented ####
+    # activities = handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')
+    # handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
+    # handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
+    #############################
+
+
+###Key For Response types:
+- The `@` symbol is used to denote an entity unto itself. In the case of `@location` then in place you can logically expand a location object for `@location`. This is done for brevity.
 
 ## All Success Results Take the Form:
     {
@@ -42,7 +99,7 @@
       updated_at: "2011-12-20T07:06:57Z",
       url: "http://justnom.it/users/bn",
       has_joined: true,
-      follower_count: 16,
+      follower_count: 164,
       user_nid: "4eccc0fbeef0a64dcf000001",
       screen_name: "bn"
     }

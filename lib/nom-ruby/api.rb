@@ -50,7 +50,7 @@ module Nom
 
     def user_search(query, options = {})
       start, limit = Nom::Util.page(options)
-      Nom::API.handle.get('/locations/search', {
+      Nom::API.handle.get('/users/search', {
         :query => query, # If the input value is of unknown origin
         :screen_name => options[:screen_name],
         :email => options[:email]

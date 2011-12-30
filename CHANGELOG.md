@@ -10,3 +10,5 @@
 - Users { register, login, search }
 - Seen at [rubygems/nom-ruby](https://rubygems.org/gems/nom-ruby) and [github/nom-ruby](https://github.com/bnorton/nom-ruby)
 
+####0.2.1 - Bugfix
+- naming was off for an api method
