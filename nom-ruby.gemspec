@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.name        = "nom-ruby"
   s.version     = GemNom::VERSION::STRING
   s.platform    = Gem::Platform::RUBY
-  s.author     = 'Nom Inc.'
+  s.author     = 'Brian Norton'
   s.email       = ["team@justnom.it"]
   s.homepage    = "https://github.com/bnorton/nom-ruby"
   s.summary     = "Nom API ruby client"
@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.test_files = `git ls-files`.split("\n").grep(/^spec/)
   s.require_paths = %w[lib]
 
-  s.extra_rdoc_files = ['README.md', 'LICENSE.md']
+  s.extra_rdoc_files = ['README.md', 'LICENSE.md', 'CHANGELOG.md']
   s.rdoc_options = ['--line-numbers', '--inline-source', '--title', 'nom-ruby', '--main', 'README.md']
 
 end
