@@ -19,54 +19,67 @@
 ###Examples:
 
 ####Location (here):
+``` ruby
     handle = Nom::API.new
     locations = handle.here(37.7969, -122.39955)
+```
 
 ####Location (here - paginated to page 3):
+``` ruby
     handle = Nom::API.new
     locations = handle.here(37.7969, -122.39955, {
       :start => 30,
       :limit => 15
     })
+```
 
 ####Geolocation based search for 'vegetarian'
+``` ruby
     handle = Nom::API.new
     locations = handle.location_search('vegetarian', {
       :lat => 37.7969,
       :lng => -122.39955
     })
-
+```
 
 ####User search for 'team'
+``` ruby
     handle = Nom::API.new
     users = handle.user_search('team')
     users = handle.user_search('test_accout@justnom.it')
+```
 
 ####User registration (simple):
+``` ruby
     handle = Nom::API.new
     user = handle.register('test_accout@justnom.it', 'a_password')
+```
 
 ####User registration (with options):
+``` ruby
     handle = Nom::API.new
     user = handle.register('test_accout@justnom.it', 'a_password', {
       :name => "The Nom Team",
       :city => 'San Francisco',
       :screen_name => 'team'
     })
+```
 
 ####User Login (identifier and password based)
+``` ruby
     handle = Nom::API.new
     user = handle.login('a_password', {:email => 'test_accout2@justnom.it'})
     user = handle.login('a_password', {:user_nid => '4efd9128eef0a63881000001'}) ## same user a above
+```
 
 ####Yet Unimplemented
-    
+``` ruby
     #### Not yet implemented ####
     # activities = handle.activities(:user_nid => '4eccc0fbeef0a64dcf000001')
     # handle.recommend(:text => 'I Just Nommed at ...', :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
     # handle.thumb(:location_nid => "4edgc0fbadf0a64dcf110037", :user_nid => '4eccc0fbeef0a64dcf000001', :auth_token => '2af...fad3y')
     #############################
-
+```
 
 ###Key For Response types:
 - The `@` symbol is used to denote an entity unto itself. In the case of `@location` then in place you can logically expand a location object for `@location`. This is done for brevity.
