@@ -8,5 +8,5 @@
 - Author: Brian Norton
 - Locations { here, search}
 - Users { register, login, search }
-- Seen at [rubygems/nom-ruby]() and [github/nom-ruby](https://github.com/bnorton/nom-ruby)
+- Seen at [rubygems/nom-ruby](https://rubygems.org/gems/nom-ruby) and [github/nom-ruby](https://github.com/bnorton/nom-ruby)
 
