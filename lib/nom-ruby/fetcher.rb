@@ -1,16 +1,15 @@
 module Nom
   class Fetcher
 
-    def post(path, params = {}, body = {})
+    def post(path, body = {})
       url = url_for_path(path)
-      add_params(url, params)
-      _post(url, body)
+      go(url, Net::HTTP::Post, body)
     end
 
     def get(path, params = {})
       url = url_for_path(path)
       add_params(url, params)
-      _get(url)
+      go(url, Net::HTTP::Get)
     end
 
     private
@@ -31,18 +30,11 @@ module Nom
       [http, uri]
     end
 
-    def _go(url,type)
+    def go(url, type, body=nil)
       http,uri = start(url)
       request = type.new(uri.request_uri)
+      request.set_form_data(body) if(body.kind_of?(Hash) && body.present?)
       JSON.parse(http.request(request).body) rescue {}
-    end
-    
-    def _get(url)
-      _go url, Net::HTTP::Get
-    end
-
-    def _post(url, body)
-      _go url, Net::HTTP::Post
     end
 
     # always request json
@@ -58,5 +50,6 @@ module Nom
       url << extra
       url << params.to_param unless params.blank?
     end
+
   end
 end
