@@ -1,0 +1,6 @@
+tmp/*
+log/*
+pkg
+.bundle/*
+tags
+*.gem
